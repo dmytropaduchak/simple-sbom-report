@@ -1,0 +1,31 @@
+name: Simple SBOM Report
+description: Emit a CycloneDX JSON SBOM artifact from npm/yarn/pnpm lockfiles.
+author: Dmytro Paduchak
+branding:
+  icon: package
+  color: orange
+inputs:
+  github-token:
+    description: Token to post sticky PR comments.
+    required: false
+    default: ${{ github.token }}
+  lockfile-path:
+    description: Path to package-lock.json, yarn.lock, or pnpm-lock.yaml (auto-detect if empty).
+    required: false
+    default: ""
+  output-path:
+    description: Where to write the CycloneDX JSON file.
+    required: false
+    default: sbom.cdx.json
+  format:
+    description: "sbom format: cyclonedx (spdx reserved for later)."
+    required: false
+    default: cyclonedx
+runs:
+  using: node20
+  main: dist/index.js
+outputs:
+  component-count:
+    description: Number of components in the SBOM.
+  output-path:
+    description: Path written.
