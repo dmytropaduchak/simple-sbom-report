@@ -17,15 +17,6 @@ inputs:
     description: Where to write the CycloneDX JSON file.
     required: false
     default: sbom.cdx.json
-  format:
-    description: "sbom format: cyclonedx (spdx reserved for later)."
-    required: false
-    default: cyclonedx
 runs:
   using: node20
   main: dist/index.js
-outputs:
-  component-count:
-    description: Number of components in the SBOM.
-  output-path:
-    description: Path written.
