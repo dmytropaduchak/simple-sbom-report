@@ -1,4 +1,4 @@
-name: Simple SBOM Report
+name: Simple SBOM Export
 description: Emit a CycloneDX JSON SBOM artifact from npm/yarn/pnpm lockfiles.
 author: Dmytro Paduchak
 branding:
